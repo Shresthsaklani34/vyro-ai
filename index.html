@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#090b12" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="VYRO AI" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<title>VYRO AI — Creator Studio</title>
+<style>
+:root{--bg:#090b12;--panel:#111522;--panel2:#171d2d;--line:#252d40;--muted:#8d97ad;--text:#f4f6fb;--accent:#8b5cf6;--accent2:#22d3ee;--green:#34d399}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 20% -10%,#242044 0,transparent 35%),var(--bg);color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);background:#20283a;color:var(--text);border-radius:10px;padding:10px 14px;font-weight:650}button:hover{border-color:#8b5cf6;background:#292e48}button.primary{background:linear-gradient(110deg,#7c3aed,#4f46e5);border:0}button:disabled{opacity:.45;cursor:not-allowed}
+.top{height:68px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:#0b0e17dd;position:sticky;top:0;z-index:3;backdrop-filter:blur(16px)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:.12em}.logo{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,#a78bfa,#22d3ee);display:grid;place-items:center;color:#090b12;font-weight:950;font-size:18px}.top small{color:var(--muted);letter-spacing:0;font-weight:500}.topright{display:flex;align-items:center;gap:10px}
+.wrap{max-width:1500px;margin:auto;padding:22px;display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px}
+.heading{grid-column:1/-1;display:flex;justify-content:space-between;align-items:end;margin-bottom:2px}.eyebrow{color:#a78bfa;text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:.16em}.heading h1{font-size:25px;margin:4px 0 0}.sub{color:var(--muted);margin-top:4px}
+.workspace{min-width:0}.panel{background:linear-gradient(180deg,#141a29,#101522);border:1px solid var(--line);border-radius:16px;overflow:hidden}.panelhead{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.panelhead strong{font-size:13px}.muted{color:var(--muted)}.previewarea{padding:18px;display:flex;justify-content:center;align-items:center;min-height:470px;background:radial-gradient(ellipse at center,#20273a,#0c101a 70%);position:relative}
+.stage{position:relative;width:min(100%,760px);height:420px;display:flex;align-items:center;justify-content:center}.stage canvas{max-width:100%;max-height:100%;border-radius:9px;background:#05070c;box-shadow:0 18px 60px #0009}.empty{width:min(100%,640px);height:350px;border:1px dashed #46506a;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:#101522}.empty .big{font-size:40px}.empty h2{margin:10px 0 4px}.empty p{color:var(--muted);max-width:390px}.controls{padding:13px 16px;display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);flex-wrap:wrap}.controls input[type=range]{flex:1;min-width:120px;accent-color:#9b7bff}.time{font-variant-numeric:tabular-nums;color:#cbd2e2;font-size:12px;min-width:94px}
+.timeline{margin-top:16px}.timelinebody{padding:16px}.tracklabel{font-size:11px;color:var(--muted);width:62px;flex-shrink:0}.track{display:flex;align-items:center;gap:10px;margin:10px 0}.trackbar{height:42px;border:1px solid #39435a;border-radius:8px;background:linear-gradient(90deg,#31245d,#1b4660);flex:1;position:relative;overflow:hidden}.trackbar .clip{position:absolute;inset:4px;border-radius:5px;background:linear-gradient(90deg,#7653cb,#267f9a);opacity:.9}.trackbar .trim{position:absolute;top:0;bottom:0;border:2px solid #c4b5fd;background:#a78bfa22;pointer-events:none}.trackbar .playhead{position:absolute;top:0;bottom:0;width:2px;background:#fff;box-shadow:0 0 8px #fff}.timelinefoot{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-top:8px}
+.sidebar{display:flex;flex-direction:column;gap:14px}.sidebody{padding:15px}.field{margin-bottom:15px}.field:last-child{margin-bottom:0}.field label{display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-bottom:7px;color:#d7dced}.field input[type=text],.field textarea,.field select{width:100%;background:#0b101b;color:var(--text);border:1px solid #30394d;border-radius:9px;padding:10px;outline:none}.field textarea{min-height:74px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:#8b5cf6}.field input[type=color]{width:44px;height:30px;background:transparent;border:0}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.ratio{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.ratio button{padding:8px 4px;font-size:12px}.ratio button.active{border-color:#a78bfa;background:#382d61}.upload{border:1px dashed #56617a;border-radius:11px;padding:13px;text-align:center;background:#0c111d}.upload input{display:none}.upload label{cursor:pointer;color:#c4b5fd;font-weight:700}.hint{font-size:11px;color:var(--muted);margin-top:7px}.status{padding:10px 12px;border-radius:9px;background:#101d23;color:#9ae6c7;font-size:12px;display:none}.status.show{display:block}.notice{font-size:11px;color:#aab3c6;line-height:1.5;padding:12px;border:1px solid #34304f;background:#17142a;border-radius:10px}.footer{grid-column:1/-1;color:#68738b;text-align:center;font-size:11px;padding:10px}
+@media(max-width:950px){.wrap{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.heading{align-items:start;gap:12px;flex-direction:column}}
+@media(max-width:620px){.wrap{padding:12px}.sidebar{grid-template-columns:1fr}.previewarea{min-height:320px;padding:10px}.stage{height:300px}.top{padding:0 14px}.top small{display:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><div class="logo">V</div><div>VYRO <span style="color:#a78bfa">AI</span><br><small>CREATOR STUDIO</small></div></div>
+  <div class="topright"><span class="muted" style="font-size:12px">Installable app · Free</span><button id="exportTop" class="primary" disabled>Export video ↗</button></div>
+</header>
+<main class="wrap">
+  <div class="heading"><div><div class="eyebrow">Your creative workspace</div><h1>Make something worth watching.</h1><div class="sub">A free, browser-based editing prototype. Your video stays on your device.</div></div><div class="muted" style="font-size:12px">PROJECT / UNTITLED REEL</div></div>
+  <section class="workspace">
+    <div class="panel">
+      <div class="panelhead"><strong>PREVIEW</strong><span class="muted" id="fileName">No video loaded</span></div>
+      <div class="previewarea">
+        <div class="empty" id="empty">
+          <div><div class="big">✦</div><h2>Start with a video</h2><p>Upload a clip from your device to trim it, add text and captions, choose a social format and export.</p><button class="primary" id="chooseBtn">＋ Upload video</button></div>
+        </div>
+        <div class="stage" id="stage" style="display:none"><canvas id="canvas" width="720" height="405"></canvas></div>
+      </div>
+      <div class="controls">
+        <button id="playBtn" disabled>▶ Play</button>
+        <input id="scrub" type="range" min="0" max="100" value="0" disabled />
+        <span class="time" id="clock">00:00 / 00:00</span>
+        <button id="restartBtn" disabled>↺</button>
+      </div>
+    </div>
+    <div class="panel timeline">
+      <div class="panelhead"><strong>EDITING TIMELINE</strong><span class="muted" id="durationLabel">No clip</span></div>
+      <div class="timelinebody">
+        <div class="track"><span class="tracklabel">VIDEO</span><div class="trackbar"><div class="clip"></div><div class="trim" id="trimVisual"></div><div class="playhead" id="playhead" style="left:0"></div></div></div>
+        <div class="track"><span class="tracklabel">TEXT</span><div class="trackbar" style="height:27px;background:#1b1830"><div class="clip" style="background:linear-gradient(90deg,#8b5cf6,#4f46e5)"></div></div></div>
+        <div class="track"><span class="tracklabel">CAPTIONS</span><div class="trackbar" style="height:27px;background:#11212a"><div class="clip" style="background:linear-gradient(90deg,#0e7490,#22d3ee)"></div></div></div>
+        <div class="timelinefoot"><span>00:00</span><span>Trim handles are set in the right panel</span><span id="endTime">00:00</span></div>
+      </div>
+    </div>
+  </section>
+  <aside class="sidebar">
+    <div class="panel">
+      <div class="panelhead"><strong>01 / MEDIA</strong><span class="muted">Import</span></div>
+      <div class="sidebody">
+        <div class="upload"><label for="videoFile">＋ Choose a video file</label><input id="videoFile" type="file" accept="video/*"><div class="hint">MP4, WebM, MOV (browser support varies)</div></div>
+        <div class="hint" id="mediaMeta">No media selected yet.</div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panelhead"><strong>02 / FORMAT</strong><span class="muted">Canvas</span></div>
+      <div class="sidebody">
+        <div class="field"><label>Platform format</label><div class="ratio"><button data-ratio="9:16" class="active">9:16 Reel</button><button data-ratio="1:1">1:1 Square</button><button data-ratio="16:9">16:9 Wide</button></div></div>
+        <div class="field"><label>Trim start <span id="startVal">0.0s</span></label><input id="trimStart" type="range" min="0" max="100" value="0" disabled style="width:100%;accent-color:#9b7bff"></div>
+        <div class="field"><label>Trim end <span id="endVal">0.0s</span></label><input id="trimEnd" type="range" min="0" max="100" value="100" disabled style="width:100%;accent-color:#9b7bff"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panelhead"><strong>03 / TEXT & CAPTIONS</strong><span class="muted">Overlay</span></div>
+      <div class="sidebody">
+        <div class="field"><label>Headline</label><input id="headline" type="text" placeholder="Your opening hook..." value="WAIT FOR IT"></div>
+        <div class="field"><label>Caption / subtitle</label><textarea id="caption" placeholder="Type your subtitle here...">This is where your story begins.</textarea></div>
+        <div class="field"><label>Text color <input id="textColor" type="color" value="#ffffff"></label></div>
+        <div class="field"><label>Headline size <span id="fontVal">42px</span></label><input id="fontSize" type="range" min="18" max="72" value="42" style="width:100%;accent-color:#9b7bff"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panelhead"><strong>04 / AI CREATIVE ASSIST</strong><span class="muted">Starter</span></div>
+      <div class="sidebody">
+        <div class="field"><label>What is your video about?</label><textarea id="topic" placeholder="e.g. A 30-day fitness transformation..."></textarea></div>
+        <button id="hookBtn" class="primary" style="width:100%">✦ Generate hook ideas</button>
+        <div id="hooks" class="hint" style="margin-top:10px">Hook suggestions appear here. This starter uses lightweight local templates, not a paid AI API.</div>
+      </div>
+    </div>
+    <div class="notice">Prototype note: exports are WebM and rendered in your browser. This is the first foundation—not full CapCut parity, cloud AI editing, or a guarantee of viral reach. No video is uploaded to a server.</div>
+    <div class="status" id="status"></div>
+  </aside>
+  <div class="footer">VYRO AI · Early prototype · Built for local editing and experimentation</div>
+</main>
+<video id="source" playsinline style="display:none"></video>
+<script>
+const $ = id => document.getElementById(id);
+const video=$('source'), canvas=$('canvas'), ctx=canvas.getContext('2d');
+let objectUrl=null, ratio='9:16', duration=0, start=0, end=0, raf=0, exporting=false;
+const fmt=s=>{s=Math.max(0,s||0);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(Math.floor(s%60)).padStart(2,'0')};
+function setStatus(msg){$('status').textContent=msg;$('status').classList.add('show');}
+function clearStatus(){$('status').classList.remove('show')}
+function setCanvasRatio(){
+ const [w,h]=ratio.split(':').map(Number); const max=720;
+ if(w>h){canvas.width=max;canvas.height=Math.round(max*h/w)}
+ else {canvas.height=max;canvas.width=Math.round(max*w/h)}
+ drawFrame();
+}
+function drawFrame(){
+ if(!video.videoWidth)return;
+ const W=canvas.width,H=canvas.height, vw=video.videoWidth,vh=video.videoHeight;
+ ctx.clearRect(0,0,W,H);ctx.fillStyle='#05070c';ctx.fillRect(0,0,W,H);
+ const scale=Math.max(W/vw,H/vh), sw=W/scale, sh=H/scale, sx=(vw-sw)/2, sy=(vh-sh)/2;
+ ctx.drawImage(video,sx,sy,sw,sh,0,0,W,H);
+ const title=$('headline').value.trim(), cap=$('caption').value.trim(), color=$('textColor').value, fs=Number($('fontSize').value);
+ ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=color;ctx.shadowColor='#000';ctx.shadowBlur=9;ctx.lineJoin='round';
+ if(title){ctx.font=`900 ${fs}px system-ui, sans-serif`;wrapText(title,W/2,H*.22,W*.86,fs*1.12,2)}
+ if(cap){ctx.font=`700 ${Math.max(16,Math.round(fs*.48))}px system-ui,sans-serif`;wrapText(cap,W/2,H*.82,W*.86,Math.max(22,fs*.62),3)}
+ ctx.shadowBlur=0;
+}
+function wrapText(text,x,y,maxWidth,lineHeight,maxLines){
+ const words=text.split(/\s+/),lines=[];let line='';
+ for(const word of words){const test=line?line+' '+word:word;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=word}else line=test}
+ if(line)lines.push(line);const shown=lines.slice(0,maxLines);if(lines.length>maxLines)shown[maxLines-1]+='…';
+ const total=shown.length*lineHeight;shown.forEach((l,i)=>{ctx.lineWidth=Math.max(3,lineHeight*.12);ctx.strokeStyle='#000b';ctx.strokeText(l,x,y-total/2+lineHeight*(i+.5));ctx.fillText(l,x,y-total/2+lineHeight*(i+.5))});
+}
+function updateTime(){
+ const t=video.currentTime||0;$('clock').textContent=`${fmt(t)} / ${fmt(duration)}`;
+ $('scrub').value=duration?Math.min(100,t/duration*100):0;
+ $('playhead').style.left=(duration?t/duration*100:0)+'%';
+ drawFrame();
+}
+function loaded(){
+ duration=video.duration||0;start=0;end=duration;
+ ['trimStart','trimEnd'].forEach(id=>{ $(id).disabled=false;$(id).max=duration;});
+ $('trimStart').value=0;$('trimEnd').value=duration;
+ $('startVal').textContent='0.0s';$('endVal').textContent=end.toFixed(1)+'s';
+ $('empty').style.display='none';$('stage').style.display='flex';
+ ['playBtn','restartBtn','scrub','exportTop'].forEach(id=>$(id).disabled=false);
+ $('scrub').max=100;$('fileName').textContent=video.dataset.name||'Video loaded';
+ $('mediaMeta').textContent=`${video.videoWidth} × ${video.videoHeight} · ${fmt(duration)} duration`;
+ $('durationLabel').textContent=fmt(duration);$('endTime').textContent=fmt(duration);
+ $('trimVisual').style.left='0%';$('trimVisual').style.width='100%';
+ setCanvasRatio();updateTime();clearStatus();
+}
+function loadFile(file){
+ if(!file)return;if(objectUrl)URL.revokeObjectURL(objectUrl);
+ objectUrl=URL.createObjectURL(file);video.src=objectUrl;video.dataset.name=file.name;video.load();
+ video.onloadedmetadata=loaded;video.onerror=()=>setStatus('Could not load this video. Try an MP4 or WebM file.');
+}
+$('chooseBtn').onclick=()=>$('videoFile').click();
+$('videoFile').onchange=e=>loadFile(e.target.files[0]);
+$('playBtn').onclick=()=>{if(video.paused){if(video.currentTime<start||video.currentTime>=end)video.currentTime=start;video.play();$('playBtn').textContent='Ⅱ Pause'}else{video.pause();$('playBtn').textContent='▶ Play'}};
+$('restartBtn').onclick=()=>{video.pause();video.currentTime=start;$('playBtn').textContent='▶ Play';updateTime()};
+video.ontimeupdate=()=>{if(!exporting&&video.currentTime>=end&&end>start){video.pause();video.currentTime=start;$('playBtn').textContent='▶ Play'}updateTime()};
+video.onseeked=drawFrame;
+$('scrub').oninput=e=>{if(duration)video.currentTime=Number(e.target.value)/100*duration};
+$('trimStart').oninput=e=>{start=Math.min(Number(e.target.value),end-.1);$('startVal').textContent=start.toFixed(1)+'s';$('trimVisual').style.left=(start/duration*100)+'%';$('trimVisual').style.width=((end-start)/duration*100)+'%';if(video.currentTime<start)video.currentTime=start};
+$('trimEnd').oninput=e=>{end=Math.max(Number(e.target.value),start+.1);$('endVal').textContent=end.toFixed(1)+'s';$('trimVisual').style.left=(start/duration*100)+'%';$('trimVisual').style.width=((end-start)/duration*100)+'%';};
+document.querySelectorAll('[data-ratio]').forEach(b=>b.onclick=()=>{ratio=b.dataset.ratio;document.querySelectorAll('[data-ratio]').forEach(x=>x.classList.toggle('active',x===b));setCanvasRatio()});
+['headline','caption','textColor','fontSize'].forEach(id=>$(id).addEventListener('input',()=>{if(id==='fontSize')$('fontVal').textContent=$('fontSize').value+'px';drawFrame()}));
+$('hookBtn').onclick=()=>{
+ const topic=$('topic').value.trim();if(!topic){$('hooks').textContent='Add a topic first so I can suggest relevant openings.';return}
+ const ideas=[`I wish I knew this about ${topic} sooner.`,`Stop scrolling if you want to understand ${topic}.`,`The biggest mistake people make with ${topic} is this.`,`Here is what nobody tells you about ${topic}.`,`I tried ${topic} so you can see what actually happens.`];
+ $('hooks').innerHTML='';ideas.forEach((s,i)=>{const d=document.createElement('button');d.textContent=(i+1)+'. '+s;d.style.cssText='display:block;width:100%;text-align:left;margin:6px 0;font-size:11px;padding:8px';d.onclick=()=>{$('headline').value=s.toUpperCase();drawFrame()};$('hooks').appendChild(d)});
+};
+async function exportVideo(){
+ if(!video.src||!duration)return;
+ if(!window.MediaRecorder){setStatus('This browser does not support video export. Try the latest Chrome or Edge.');return}
+ const oldTime=video.currentTime, wasPaused=video.paused;exporting=true;video.pause();
+ try{
+  video.currentTime=start;await new Promise(resolve=>{const f=()=>{video.removeEventListener('seeked',f);resolve()};video.addEventListener('seeked',f,{once:true})});
+  const stream=canvas.captureStream(30);
+  if(video.captureStream){const sourceStream=video.captureStream();sourceStream.getAudioTracks().forEach(t=>stream.addTrack(t))}
+  const mime=['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'].find(t=>MediaRecorder.isTypeSupported(t));
+  const recorder=new MediaRecorder(stream,mime?{mimeType:mime}:undefined),chunks=[];
+  recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};
+  const finished=new Promise(resolve=>recorder.onstop=resolve);
+  recorder.start(250);video.muted=false;await video.play();$('playBtn').textContent='Rendering…';
+  const render=()=>{drawFrame();if(video.currentTime>=end||video.ended){video.pause();recorder.stop();return}raf=requestAnimationFrame(render)};
+  render();await finished;cancelAnimationFrame(raf);
+  const blob=new Blob(chunks,{type:recorder.mimeType||'video/webm'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download='vyro-ai-edit.webm';a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);
+  setStatus('Export complete. Your WebM video has been downloaded.');
+ }catch(err){console.error(err);setStatus('Export failed. Try a shorter clip or another browser.')}
+ finally{exporting=false;video.pause();video.muted=false;video.currentTime=Math.min(oldTime,duration);$('playBtn').textContent='▶ Play';updateTime()}
+}
+$('exportTop').onclick=exportVideo;
+</script>
+
+<script>
+// PWA offline support. Installation requires HTTPS (or localhost during development).
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>

@@ -19,9 +19,12 @@ button,input,textarea,select{font:inherit}button{cursor:pointer;border:1px solid
 .wrap{max-width:1500px;margin:auto;padding:22px;display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px}
 .heading{grid-column:1/-1;display:flex;justify-content:space-between;align-items:end;margin-bottom:2px}.eyebrow{color:#a78bfa;text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:.16em}.heading h1{font-size:25px;margin:4px 0 0}.sub{color:var(--muted);margin-top:4px}
 .workspace{min-width:0}.panel{background:linear-gradient(180deg,#141a29,#101522);border:1px solid var(--line);border-radius:16px;overflow:hidden}.panelhead{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.panelhead strong{font-size:13px}.muted{color:var(--muted)}.previewarea{padding:18px;display:flex;justify-content:center;align-items:center;min-height:470px;background:radial-gradient(ellipse at center,#20273a,#0c101a 70%);position:relative}
-.stage{position:relative;width:min(100%,760px);height:420px;display:flex;align-items:center;justify-content:center}.stage canvas{max-width:100%;max-height:100%;border-radius:9px;background:#05070c;box-shadow:0 18px 60px #0009}.empty{width:min(100%,640px);height:350px;border:1px dashed #46506a;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:#101522}.empty .big{font-size:40px}.empty h2{margin:10px 0 4px}.empty p{color:var(--muted);max-width:390px}.controls{padding:13px 16px;display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);flex-wrap:wrap}.controls input[type=range]{flex:1;min-width:120px;accent-color:#9b7bff}.time{font-variant-numeric:tabular-nums;color:#cbd2e2;font-size:12px;min-width:94px}
+.stage{position:relative;width:auto;height:420px;max-width:100%;aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;container-type:inline-size;border-radius:9px;background:#05070c;overflow:hidden;box-shadow:0 18px 60px #0009}
+.stage video{display:block;width:100%;height:100%;object-fit:cover;background:#05070c;filter:none;will-change:auto}.preview-overlay{position:absolute;inset:0;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:22% 7% 13%;text-align:center;color:#fff;text-shadow:0 2px 5px #000,0 0 10px #000;overflow:hidden}.preview-headline{font-weight:900;font-size:clamp(12px,7cqw,42px);line-height:1.12;max-width:100%;overflow-wrap:anywhere}.preview-caption{font-weight:700;font-size:clamp(10px,3.5cqw,21px);line-height:1.25;max-width:100%;overflow-wrap:anywhere}.stage canvas{display:none!important}.empty{width:min(100%,640px);height:350px;border:1px dashed #46506a;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:#101522}.empty .big{font-size:40px}.empty h2{margin:10px 0 4px}.empty p{color:var(--muted);max-width:390px}.controls{padding:13px 16px;display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);flex-wrap:wrap}.controls input[type=range]{flex:1;min-width:120px;accent-color:#9b7bff}.time{font-variant-numeric:tabular-nums;color:#cbd2e2;font-size:12px;min-width:94px}
 .timeline{margin-top:16px}.timelinebody{padding:16px}.tracklabel{font-size:11px;color:var(--muted);width:62px;flex-shrink:0}.track{display:flex;align-items:center;gap:10px;margin:10px 0}.trackbar{height:42px;border:1px solid #39435a;border-radius:8px;background:linear-gradient(90deg,#31245d,#1b4660);flex:1;position:relative;overflow:hidden}.trackbar .clip{position:absolute;inset:4px;border-radius:5px;background:linear-gradient(90deg,#7653cb,#267f9a);opacity:.9}.trackbar .trim{position:absolute;top:0;bottom:0;border:2px solid #c4b5fd;background:#a78bfa22;pointer-events:none}.trackbar .playhead{position:absolute;top:0;bottom:0;width:2px;background:#fff;box-shadow:0 0 8px #fff}.timelinefoot{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-top:8px}
 .sidebar{display:flex;flex-direction:column;gap:14px}.sidebody{padding:15px}.field{margin-bottom:15px}.field:last-child{margin-bottom:0}.field label{display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-bottom:7px;color:#d7dced}.field input[type=text],.field textarea,.field select{width:100%;background:#0b101b;color:var(--text);border:1px solid #30394d;border-radius:9px;padding:10px;outline:none}.field textarea{min-height:74px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:#8b5cf6}.field input[type=color]{width:44px;height:30px;background:transparent;border:0}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.ratio{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.ratio button{padding:8px 4px;font-size:12px}.ratio button.active{border-color:#a78bfa;background:#382d61}.upload{border:1px dashed #56617a;border-radius:11px;padding:13px;text-align:center;background:#0c111d}.upload input{display:none}.upload label{cursor:pointer;color:#c4b5fd;font-weight:700}.hint{font-size:11px;color:var(--muted);margin-top:7px}.status{padding:10px 12px;border-radius:9px;background:#101d23;color:#9ae6c7;font-size:12px;display:none}.status.show{display:block}.notice{font-size:11px;color:#aab3c6;line-height:1.5;padding:12px;border:1px solid #34304f;background:#17142a;border-radius:10px}.footer{grid-column:1/-1;color:#68738b;text-align:center;font-size:11px;padding:10px}
+.modebar{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:2px 0 4px}.modecard{padding:16px;text-align:left;border:1px solid var(--line);background:linear-gradient(140deg,#171d2d,#101522);border-radius:14px;display:flex;gap:12px;align-items:center}.modecard.active{border-color:#9b7bff;box-shadow:0 0 0 1px #9b7bff33 inset;background:linear-gradient(140deg,#282044,#131b2a)}.modeicon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#302653;font-size:21px;flex:none}.modecard small{display:block;color:var(--muted);font-weight:500;margin-top:3px}.modepanel{grid-column:1/-1}.modepanel[hidden]{display:none}.ai-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.ai-grid .field{margin:0}.ai-result{padding:12px;background:#101d23;border:1px solid #285246;border-radius:10px;color:#c5f7e4;margin-top:12px;white-space:pre-line;font-size:12px}.toolrow{display:flex;gap:8px;flex-wrap:wrap}.toolrow button{font-size:12px;padding:8px 10px}
+@media(max-width:620px){.modebar{grid-template-columns:1fr}.ai-grid{grid-template-columns:1fr}}
 @media(max-width:950px){.wrap{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.heading{align-items:start;gap:12px;flex-direction:column}}
 @media(max-width:620px){.wrap{padding:12px}.sidebar{grid-template-columns:1fr}.previewarea{min-height:320px;padding:10px}.stage{height:300px}.top{padding:0 14px}.top small{display:none}}
 </style>
@@ -32,15 +35,33 @@ button,input,textarea,select{font:inherit}button{cursor:pointer;border:1px solid
   <div class="topright"><span class="muted" style="font-size:12px">Installable app · Free</span><button id="exportTop" class="primary" disabled>Export video ↗</button></div>
 </header>
 <main class="wrap">
-  <div class="heading"><div><div class="eyebrow">Your creative workspace</div><h1>Make something worth watching.</h1><div class="sub">A free, browser-based editing prototype. Your video stays on your device.</div></div><div class="muted" style="font-size:12px">PROJECT / UNTITLED REEL</div></div>
-  <section class="workspace">
+  <div class="heading"><div><div class="eyebrow">Your creative workspace</div><h1>Make something worth watching.</h1><div class="sub">Manual controls plus an AI-assisted edit planner. Your video stays on your device.</div></div><div class="muted" style="font-size:12px">PROJECT / UNTITLED REEL</div></div>
+  <div class="modebar" aria-label="Choose editing mode">
+    <button class="modecard active" id="manualMode" type="button"><span class="modeicon">✂</span><span><strong>Manual Edit</strong><small>Take control of your timeline and creative tools</small></span></button>
+    <button class="modecard" id="aiMode" type="button"><span class="modeicon">✦</span><span><strong>AI Edit</strong><small>Build an automatic edit plan for your platform and niche</small></span></button>
+  </div>
+  <section class="panel modepanel" id="aiPanel" hidden>
+    <div class="panelhead"><strong>AI EDIT STUDIO</strong><span class="muted">Local smart assistant · no upload</span></div>
+    <div class="sidebody">
+      <div class="ai-grid">
+        <div class="field"><label for="aiPlatform">Platform</label><select id="aiPlatform"><option value="Instagram Reels">Instagram Reels</option><option value="YouTube Shorts">YouTube Shorts</option><option value="TikTok">TikTok</option><option value="Facebook Reels">Facebook Reels</option><option value="YouTube">YouTube (wide)</option></select></div>
+        <div class="field"><label for="aiNiche">Content niche</label><select id="aiNiche"><option>General creator</option><option>Gaming</option><option>Podcast</option><option>Education</option><option>Fitness</option><option>Motivation</option><option>Business</option><option>Travel</option><option>Fashion & beauty</option><option>Comedy</option><option>Food</option></select></div>
+        <div class="field"><label for="aiGoal">Editing goal</label><select id="aiGoal"><option value="retention">Audience retention</option><option value="story">Storytelling</option><option value="educational">Educational clarity</option><option value="cinematic">Cinematic feel</option></select></div>
+      </div>
+      <div class="field" style="margin-top:14px"><label for="aiTopic">Describe the video / main message</label><textarea id="aiTopic" placeholder="Example: 3 mistakes beginners make when starting the gym"></textarea></div>
+      <div class="toolrow"><button id="makeAiEdit" class="primary" type="button">✦ Create my edit plan</button><button id="aiToManual" type="button">Open in Manual Edit</button></div>
+      <div id="aiResult" class="ai-result" hidden></div>
+      <div class="hint">This offline starter creates a rule-based edit plan from your choices and video duration. It does not yet use a connected vision model, transcribe speech, or detect the best visual moments. Those require an AI service integration.</div>
+    </div>
+  </section>
+  <section class="workspace" id="manualWorkspace">
     <div class="panel">
       <div class="panelhead"><strong>PREVIEW</strong><span class="muted" id="fileName">No video loaded</span></div>
       <div class="previewarea">
         <div class="empty" id="empty">
           <div><div class="big">✦</div><h2>Start with a video</h2><p>Upload a clip from your device to trim it, add text and captions, choose a social format and export.</p><button class="primary" id="chooseBtn">＋ Upload video</button></div>
         </div>
-        <div class="stage" id="stage" style="display:none"><canvas id="canvas" width="720" height="405"></canvas></div>
+        <div class="stage" id="stage" style="display:none"><video id="source" playsinline webkit-playsinline preload="metadata"></video><div class="preview-overlay" aria-hidden="true"><div class="preview-headline" id="previewHeadline">WAIT FOR IT</div><div class="preview-caption" id="previewCaption">This is where your story begins.</div></div><canvas id="canvas" width="720" height="1280"></canvas></div>
       </div>
       <div class="controls">
         <button id="playBtn" disabled>▶ Play</button>
@@ -85,110 +106,107 @@ button,input,textarea,select{font:inherit}button{cursor:pointer;border:1px solid
       </div>
     </div>
     <div class="panel">
-      <div class="panelhead"><strong>04 / AI CREATIVE ASSIST</strong><span class="muted">Starter</span></div>
+      <div class="panelhead"><strong>04 / MANUAL TOOLS</strong><span class="muted">Playback & style</span></div>
       <div class="sidebody">
-        <div class="field"><label>What is your video about?</label><textarea id="topic" placeholder="e.g. A 30-day fitness transformation..."></textarea></div>
-        <button id="hookBtn" class="primary" style="width:100%">✦ Generate hook ideas</button>
-        <div id="hooks" class="hint" style="margin-top:10px">Hook suggestions appear here. This starter uses lightweight local templates, not a paid AI API.</div>
+        <div class="field"><label for="playbackSpeed">Preview speed <span id="speedVal">1×</span></label><input id="playbackSpeed" type="range" min="0.5" max="2" step="0.25" value="1" style="width:100%;accent-color:#9b7bff"></div>
+        <div class="field"><label for="filterSelect">Video look</label><select id="filterSelect"><option value="none">Original</option><option value="contrast(1.15) saturate(1.2)">Vibrant</option><option value="contrast(1.2) saturate(.82)">Cinematic</option><option value="grayscale(1)">Black & white</option><option value="sepia(.65)">Warm vintage</option></select></div>
+        <div class="field"><label for="volumeControl">Preview volume <span id="volumeVal">100%</span></label><input id="volumeControl" type="range" min="0" max="1" step="0.05" value="1" style="width:100%;accent-color:#9b7bff"></div>
+        <div class="hint">Preview controls are applied locally. Export uses the selected visual look; speed and audio mix controls are preview-only in this starter.</div>
       </div>
     </div>
-    <div class="notice">Prototype note: exports are WebM and rendered in your browser. This is the first foundation—not full CapCut parity, cloud AI editing, or a guarantee of viral reach. No video is uploaded to a server.</div>
+    <div class="notice">Prototype note: exports are WebM and rendered in your browser. AI Edit currently creates a local rule-based plan; real video understanding, speech transcription and generative AI need a connected AI service. No video is uploaded to a server.</div>
     <div class="status" id="status"></div>
   </aside>
   <div class="footer">VYRO AI · Early prototype · Built for local editing and experimentation</div>
 </main>
-<video id="source" playsinline style="display:none"></video>
 <script>
 const $ = id => document.getElementById(id);
-const video=$('source'), canvas=$('canvas'), ctx=canvas.getContext('2d');
+const video=$('source'), canvas=$('canvas'), ctx=canvas.getContext('2d',{alpha:false,desynchronized:true});
 let objectUrl=null, ratio='9:16', duration=0, start=0, end=0, raf=0, exporting=false;
+const EXPORT_MAX=720;
 const fmt=s=>{s=Math.max(0,s||0);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(Math.floor(s%60)).padStart(2,'0')};
-function setStatus(msg){$('status').textContent=msg;$('status').classList.add('show');}
+function setStatus(msg){$('status').textContent=msg;$('status').classList.add('show')}
 function clearStatus(){$('status').classList.remove('show')}
+function queueDraw(){syncOverlay();if(exporting)drawFrame()}
+function syncOverlay(){const title=$('headline').value.trim(),caption=$('caption').value.trim();$('previewHeadline').textContent=title;$('previewCaption').textContent=caption;$('previewHeadline').style.color=$('textColor').value;$('previewCaption').style.color=$('textColor').value;video.style.filter=$('filterSelect').value||'none';}
+function setMode(mode){const ai=mode==='ai';$('manualMode').classList.toggle('active',!ai);$('aiMode').classList.toggle('active',ai);$('aiPanel').hidden=!ai;$('manualWorkspace').style.display=ai?'none':'';$('manualMode').setAttribute('aria-pressed',String(!ai));$('aiMode').setAttribute('aria-pressed',String(ai));if(!ai)queueDraw()}
+$('manualMode').onclick=()=>setMode('manual');$('aiMode').onclick=()=>setMode('ai');$('aiToManual').onclick=()=>setMode('manual');
 function setCanvasRatio(){
- const [w,h]=ratio.split(':').map(Number); const max=720;
- if(w>h){canvas.width=max;canvas.height=Math.round(max*h/w)}
- else {canvas.height=max;canvas.width=Math.round(max*w/h)}
- drawFrame();
+ const [w,h]=ratio.split(':').map(Number);
+ if(w>h){canvas.width=EXPORT_MAX;canvas.height=Math.round(EXPORT_MAX*h/w)}else{canvas.height=EXPORT_MAX;canvas.width=Math.round(EXPORT_MAX*w/h)}
+ $('stage').style.aspectRatio=`${w}/${h}`;
+ $('stage').style.height=window.matchMedia('(max-width: 620px)').matches?'300px':'420px';
+ syncOverlay();
 }
 function drawFrame(){
  if(!video.videoWidth)return;
- const W=canvas.width,H=canvas.height, vw=video.videoWidth,vh=video.videoHeight;
- ctx.clearRect(0,0,W,H);ctx.fillStyle='#05070c';ctx.fillRect(0,0,W,H);
- const scale=Math.max(W/vw,H/vh), sw=W/scale, sh=H/scale, sx=(vw-sw)/2, sy=(vh-sh)/2;
- ctx.drawImage(video,sx,sy,sw,sh,0,0,W,H);
- const title=$('headline').value.trim(), cap=$('caption').value.trim(), color=$('textColor').value, fs=Number($('fontSize').value);
- ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=color;ctx.shadowColor='#000';ctx.shadowBlur=9;ctx.lineJoin='round';
- if(title){ctx.font=`900 ${fs}px system-ui, sans-serif`;wrapText(title,W/2,H*.22,W*.86,fs*1.12,2)}
- if(cap){ctx.font=`700 ${Math.max(16,Math.round(fs*.48))}px system-ui,sans-serif`;wrapText(cap,W/2,H*.82,W*.86,Math.max(22,fs*.62),3)}
- ctx.shadowBlur=0;
+ const W=canvas.width,H=canvas.height,vw=video.videoWidth,vh=video.videoHeight;
+ ctx.save();ctx.filter=$('filterSelect')?.value||'none';ctx.fillStyle='#05070c';ctx.fillRect(0,0,W,H);
+ const scale=Math.max(W/vw,H/vh),sw=W/scale,sh=H/scale,sx=(vw-sw)/2,sy=(vh-sh)/2;
+ ctx.drawImage(video,sx,sy,sw,sh,0,0,W,H);ctx.filter='none';
+ const title=$('headline').value.trim(),cap=$('caption').value.trim(),color=$('textColor').value,fs=Math.max(12,Number($('fontSize').value)*W/720);
+ ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=color;ctx.shadowColor='#000';ctx.shadowBlur=6;ctx.lineJoin='round';
+ if(title){ctx.font=`900 ${fs}px system-ui,sans-serif`;wrapText(title,W/2,H*.22,W*.86,fs*1.12,2)}
+ if(cap){ctx.font=`700 ${Math.max(11,Math.round(fs*.48))}px system-ui,sans-serif`;wrapText(cap,W/2,H*.82,W*.86,Math.max(15,fs*.62),3)}
+ ctx.restore();
 }
 function wrapText(text,x,y,maxWidth,lineHeight,maxLines){
- const words=text.split(/\s+/),lines=[];let line='';
- for(const word of words){const test=line?line+' '+word:word;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=word}else line=test}
- if(line)lines.push(line);const shown=lines.slice(0,maxLines);if(lines.length>maxLines)shown[maxLines-1]+='…';
- const total=shown.length*lineHeight;shown.forEach((l,i)=>{ctx.lineWidth=Math.max(3,lineHeight*.12);ctx.strokeStyle='#000b';ctx.strokeText(l,x,y-total/2+lineHeight*(i+.5));ctx.fillText(l,x,y-total/2+lineHeight*(i+.5))});
+ const words=text.split(/\s+/),lines=[];let line='';for(const word of words){const test=line?line+' '+word:word;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=word}else line=test}if(line)lines.push(line);
+ const shown=lines.slice(0,maxLines);if(lines.length>maxLines)shown[maxLines-1]+='…';const total=shown.length*lineHeight;
+ shown.forEach((l,i)=>{ctx.lineWidth=Math.max(2,lineHeight*.12);ctx.strokeStyle='#000b';ctx.strokeText(l,x,y-total/2+lineHeight*(i+.5));ctx.fillText(l,x,y-total/2+lineHeight*(i+.5))});
 }
-function updateTime(){
- const t=video.currentTime||0;$('clock').textContent=`${fmt(t)} / ${fmt(duration)}`;
- $('scrub').value=duration?Math.min(100,t/duration*100):0;
- $('playhead').style.left=(duration?t/duration*100:0)+'%';
- drawFrame();
-}
+function updateTimeUI(){const t=video.currentTime||0;$('clock').textContent=`${fmt(t)} / ${fmt(duration)}`;$('scrub').value=duration?Math.min(100,t/duration*100):0;$('playhead').style.left=(duration?t/duration*100:0)+'%'}
 function loaded(){
- duration=video.duration||0;start=0;end=duration;
- ['trimStart','trimEnd'].forEach(id=>{ $(id).disabled=false;$(id).max=duration;});
- $('trimStart').value=0;$('trimEnd').value=duration;
- $('startVal').textContent='0.0s';$('endVal').textContent=end.toFixed(1)+'s';
- $('empty').style.display='none';$('stage').style.display='flex';
- ['playBtn','restartBtn','scrub','exportTop'].forEach(id=>$(id).disabled=false);
- $('scrub').max=100;$('fileName').textContent=video.dataset.name||'Video loaded';
- $('mediaMeta').textContent=`${video.videoWidth} × ${video.videoHeight} · ${fmt(duration)} duration`;
- $('durationLabel').textContent=fmt(duration);$('endTime').textContent=fmt(duration);
- $('trimVisual').style.left='0%';$('trimVisual').style.width='100%';
- setCanvasRatio();updateTime();clearStatus();
+ duration=video.duration||0;start=0;end=duration;['trimStart','trimEnd'].forEach(id=>{$(id).disabled=false;$(id).max=duration});$('trimStart').value=0;$('trimEnd').value=duration;
+ $('startVal').textContent='0.0s';$('endVal').textContent=end.toFixed(1)+'s';$('empty').style.display='none';$('stage').style.display='flex';['playBtn','restartBtn','scrub','exportTop'].forEach(id=>$(id).disabled=false);
+ $('scrub').max=100;$('fileName').textContent=video.dataset.name||'Video loaded';$('mediaMeta').textContent=`${video.videoWidth} × ${video.videoHeight} · ${fmt(duration)} duration`;$('durationLabel').textContent=fmt(duration);$('endTime').textContent=fmt(duration);
+ $('trimVisual').style.left='0%';$('trimVisual').style.width='100%';setCanvasRatio();syncOverlay();updateTimeUI();clearStatus();
 }
-function loadFile(file){
- if(!file)return;if(objectUrl)URL.revokeObjectURL(objectUrl);
- objectUrl=URL.createObjectURL(file);video.src=objectUrl;video.dataset.name=file.name;video.load();
- video.onloadedmetadata=loaded;video.onerror=()=>setStatus('Could not load this video. Try an MP4 or WebM file.');
-}
-$('chooseBtn').onclick=()=>$('videoFile').click();
-$('videoFile').onchange=e=>loadFile(e.target.files[0]);
-$('playBtn').onclick=()=>{if(video.paused){if(video.currentTime<start||video.currentTime>=end)video.currentTime=start;video.play();$('playBtn').textContent='Ⅱ Pause'}else{video.pause();$('playBtn').textContent='▶ Play'}};
-$('restartBtn').onclick=()=>{video.pause();video.currentTime=start;$('playBtn').textContent='▶ Play';updateTime()};
-video.ontimeupdate=()=>{if(!exporting&&video.currentTime>=end&&end>start){video.pause();video.currentTime=start;$('playBtn').textContent='▶ Play'}updateTime()};
-video.onseeked=drawFrame;
-$('scrub').oninput=e=>{if(duration)video.currentTime=Number(e.target.value)/100*duration};
+function loadFile(file){if(!file)return;video.pause();if(objectUrl){URL.revokeObjectURL(objectUrl);objectUrl=null}duration=0;start=0;end=0;video.removeAttribute('src');video.load();objectUrl=URL.createObjectURL(file);video.onloadedmetadata=loaded;video.onerror=()=>setStatus('Could not load this video. Try an MP4 or WebM file.');video.dataset.name=file.name;video.preload='metadata';video.src=objectUrl;video.load();}
+$('chooseBtn').onclick=()=>$('videoFile').click();$('videoFile').onchange=e=>loadFile(e.target.files[0]);
+$('playBtn').onclick=async()=>{if(video.paused){if(video.currentTime<start||video.currentTime>=end)video.currentTime=start;try{await video.play();$('playBtn').textContent='Ⅱ Pause'}catch(e){setStatus('Playback could not start. Try another supported video format.')}}else{video.pause();$('playBtn').textContent='▶ Play';queueDraw()}};
+$('restartBtn').onclick=()=>{video.pause();video.currentTime=start;$('playBtn').textContent='▶ Play';updateTimeUI();queueDraw()};
+video.ontimeupdate=()=>{if(!exporting&&video.currentTime>=end&&end>start){video.pause();video.currentTime=start;$('playBtn').textContent='▶ Play'}updateTimeUI()};
+video.onseeked=()=>{updateTimeUI();if(exporting)drawFrame()};
+// Preview uses the browser's native video compositor. We intentionally do not
+// copy every decoded frame into canvas during playback; that extra GPU/CPU work
+// was the main source of avoidable preview stutter on weaker devices.
+$('scrub').oninput=e=>{if(duration){video.currentTime=Number(e.target.value)/100*duration;updateTimeUI()}};
 $('trimStart').oninput=e=>{start=Math.min(Number(e.target.value),end-.1);$('startVal').textContent=start.toFixed(1)+'s';$('trimVisual').style.left=(start/duration*100)+'%';$('trimVisual').style.width=((end-start)/duration*100)+'%';if(video.currentTime<start)video.currentTime=start};
-$('trimEnd').oninput=e=>{end=Math.max(Number(e.target.value),start+.1);$('endVal').textContent=end.toFixed(1)+'s';$('trimVisual').style.left=(start/duration*100)+'%';$('trimVisual').style.width=((end-start)/duration*100)+'%';};
+$('trimEnd').oninput=e=>{end=Math.max(Number(e.target.value),start+.1);$('endVal').textContent=end.toFixed(1)+'s';$('trimVisual').style.left=(start/duration*100)+'%';$('trimVisual').style.width=((end-start)/duration*100)+'%'};
 document.querySelectorAll('[data-ratio]').forEach(b=>b.onclick=()=>{ratio=b.dataset.ratio;document.querySelectorAll('[data-ratio]').forEach(x=>x.classList.toggle('active',x===b));setCanvasRatio()});
-['headline','caption','textColor','fontSize'].forEach(id=>$(id).addEventListener('input',()=>{if(id==='fontSize')$('fontVal').textContent=$('fontSize').value+'px';drawFrame()}));
-$('hookBtn').onclick=()=>{
- const topic=$('topic').value.trim();if(!topic){$('hooks').textContent='Add a topic first so I can suggest relevant openings.';return}
- const ideas=[`I wish I knew this about ${topic} sooner.`,`Stop scrolling if you want to understand ${topic}.`,`The biggest mistake people make with ${topic} is this.`,`Here is what nobody tells you about ${topic}.`,`I tried ${topic} so you can see what actually happens.`];
- $('hooks').innerHTML='';ideas.forEach((s,i)=>{const d=document.createElement('button');d.textContent=(i+1)+'. '+s;d.style.cssText='display:block;width:100%;text-align:left;margin:6px 0;font-size:11px;padding:8px';d.onclick=()=>{$('headline').value=s.toUpperCase();drawFrame()};$('hooks').appendChild(d)});
-};
+['headline','caption','textColor','fontSize','filterSelect'].forEach(id=>$(id).addEventListener('input',()=>{if(id==='fontSize')$('fontVal').textContent=$('fontSize').value+'px';queueDraw()}));
+$('playbackSpeed').oninput=e=>{video.playbackRate=Number(e.target.value);$('speedVal').textContent=video.playbackRate+'×'};
+$('volumeControl').oninput=e=>{video.volume=Number(e.target.value);$('volumeVal').textContent=Math.round(video.volume*100)+'%'};
+function buildAIPlan(){
+ if(!duration){setStatus('Upload a video first, then create your AI edit plan.');return}
+ const platform=$('aiPlatform').value,niche=$('aiNiche').value,goal=$('aiGoal').value,topic=$('aiTopic').value.trim()||niche.toLowerCase()+' video';
+ const wide=platform==='YouTube';ratio=wide?'16:9':'9:16';document.querySelectorAll('[data-ratio]').forEach(b=>b.classList.toggle('active',b.dataset.ratio===ratio));setCanvasRatio();
+ const target=platform==='YouTube'?Math.min(duration,60):Math.min(duration,Math.max(15,Math.min(45,duration)));start=0;end=Math.max(Math.min(duration,target),Math.min(duration,5));
+ $('trimStart').value=start;$('trimEnd').value=end;$('startVal').textContent=start.toFixed(1)+'s';$('endVal').textContent=end.toFixed(1)+'s';$('trimVisual').style.left='0%';$('trimVisual').style.width=(end/duration*100)+'%';$('endTime').textContent=fmt(end);
+ const hooks={Gaming:`This moment changed everything in ${topic}.`,Podcast:`The part of this conversation you need to hear`,Education:`Understand ${topic} in under a minute`,Fitness:`Try this if your goal is ${topic}`,Motivation:`If you're working on ${topic}, hear this`,Business:`One thing most people get wrong about ${topic}`,Travel:`A view you won't forget: ${topic}`,'Fashion & beauty':`A simple way to level up ${topic}`,Comedy:`Wait for the ending…`,Food:`You need to try this: ${topic}`,'General creator':`Here's what you should know about ${topic}`};
+ $('headline').value=hooks[niche]||`Here's what you should know about ${topic}`;$('caption').value=goal==='educational'?`The key idea: ${topic}. Save this for later.`:goal==='story'?`Here's the story behind ${topic}.`:`Watch until the end to see ${topic}.`;
+ $('fontSize').value=42;$('fontVal').textContent='42px';$('filterSelect').value=goal==='cinematic'?'contrast(1.2) saturate(.82)':'none';queueDraw();
+ const result=`EDIT PLAN CREATED\nPlatform: ${platform}\nNiche: ${niche}\nGoal: ${goal}\nFormat: ${ratio}\nSuggested edit length: ${fmt(end-start)}\nHook and caption added to your preview.\n\nNext: review the trim, adjust the text, then export. This local assistant uses your selections and clip duration; it has not analysed the actual visual or spoken content.`;
+ $('aiResult').textContent=result;$('aiResult').hidden=false;setStatus('AI edit plan applied. Review it before exporting.');
+}
+$('makeAiEdit').onclick=buildAIPlan;
 async function exportVideo(){
- if(!video.src||!duration)return;
- if(!window.MediaRecorder){setStatus('This browser does not support video export. Try the latest Chrome or Edge.');return}
- const oldTime=video.currentTime, wasPaused=video.paused;exporting=true;video.pause();
+ if(!video.src||!duration)return;if(!window.MediaRecorder){setStatus('This browser does not support video export. Try the latest Chrome or Edge.');return}
+ const oldTime=video.currentTime;exporting=true;video.pause();$('exportTop').disabled=true;
  try{
-  video.currentTime=start;await new Promise(resolve=>{const f=()=>{video.removeEventListener('seeked',f);resolve()};video.addEventListener('seeked',f,{once:true})});
-  const stream=canvas.captureStream(30);
-  if(video.captureStream){const sourceStream=video.captureStream();sourceStream.getAudioTracks().forEach(t=>stream.addTrack(t))}
-  const mime=['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'].find(t=>MediaRecorder.isTypeSupported(t));
-  const recorder=new MediaRecorder(stream,mime?{mimeType:mime}:undefined),chunks=[];
-  recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};
-  const finished=new Promise(resolve=>recorder.onstop=resolve);
-  recorder.start(250);video.muted=false;await video.play();$('playBtn').textContent='Rendering…';
-  const render=()=>{drawFrame();if(video.currentTime>=end||video.ended){video.pause();recorder.stop();return}raf=requestAnimationFrame(render)};
-  render();await finished;cancelAnimationFrame(raf);
-  const blob=new Blob(chunks,{type:recorder.mimeType||'video/webm'}),url=URL.createObjectURL(blob),a=document.createElement('a');
-  a.href=url;a.download='vyro-ai-edit.webm';a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);
-  setStatus('Export complete. Your WebM video has been downloaded.');
- }catch(err){console.error(err);setStatus('Export failed. Try a shorter clip or another browser.')}
- finally{exporting=false;video.pause();video.muted=false;video.currentTime=Math.min(oldTime,duration);$('playBtn').textContent='▶ Play';updateTime()}
+  if(Math.abs(video.currentTime-start)>.04){video.currentTime=start;await new Promise(resolve=>video.addEventListener('seeked',resolve,{once:true}))}
+  const stream=canvas.captureStream(30);let sourceStream=null;if(video.captureStream){sourceStream=video.captureStream();sourceStream.getAudioTracks().forEach(t=>stream.addTrack(t))}
+  const mime=['video/webm;codecs=vp8,opus','video/webm'].find(t=>MediaRecorder.isTypeSupported(t));const recorder=new MediaRecorder(stream,mime?{mimeType:mime,videoBitsPerSecond:3500000}: {videoBitsPerSecond:3500000}),chunks=[];
+  recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};const finished=new Promise(resolve=>recorder.onstop=resolve);recorder.start(500);video.muted=false;video.playbackRate=1;await video.play();$('playBtn').textContent='Rendering…';
+  const stopRender=()=>{if(recorder.state!=='inactive')recorder.stop();};
+  const render=()=>{drawFrame();if(video.currentTime>=end||video.ended){video.pause();stopRender();return}if('requestVideoFrameCallback' in HTMLVideoElement.prototype){raf=video.requestVideoFrameCallback(render)}else{raf=requestAnimationFrame(render)}};
+  if('requestVideoFrameCallback' in HTMLVideoElement.prototype){raf=video.requestVideoFrameCallback(render)}else{raf=requestAnimationFrame(render)}
+  await finished;
+  if('cancelVideoFrameCallback' in video&&raf)video.cancelVideoFrameCallback(raf);else cancelAnimationFrame(raf);
+  if(sourceStream)sourceStream.getTracks().forEach(t=>t.stop());
+  const blob=new Blob(chunks,{type:recorder.mimeType||'video/webm'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='vyro-ai-edit.webm';a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);setStatus('Export complete. Your WebM video has been downloaded.');
+ }catch(err){console.error(err);setStatus('Export failed. Try a shorter clip or another browser.')}finally{exporting=false;video.pause();video.currentTime=Math.min(oldTime,duration);$('playBtn').textContent='▶ Play';$('exportTop').disabled=false;updateTimeUI();queueDraw()}
 }
 $('exportTop').onclick=exportVideo;
 </script>
